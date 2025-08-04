@@ -12,6 +12,10 @@ backend/.env.*
 frontend/.env
 frontend/.env.*
 
+frontend/climbing_pred/eslint.config.js
+frontend/climbing_pred/package-lock.json
+frontend/climbing_pred/tsconfig.node.json
+frontend/climbing_pred/vite.config.ts
 # === LOCKFILES ===
 backend/package-lock.json
 frontend/package-lock.json
