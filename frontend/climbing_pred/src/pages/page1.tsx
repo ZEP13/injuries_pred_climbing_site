@@ -1,26 +1,30 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-
-type User = {
-    id: number;
-    username: string;
-};
+import { formatDate } from "../utils/formatDate";
+import { fetchAllUsers } from "../fetchApi/userApi";
+import type { User } from "../types/userType";
 
 const Page1 = () => {
     const [users, setUsers] = useState<User[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const fetchAllUsers = async () => {
+        const loadUsers = async () => {
             try {
-                const res = await axios.get<User[]>("http://localhost:8800/users");
-                setUsers(res.data);
-                console.log(res);
+                const data = await fetchAllUsers();
+                setUsers(data);
             } catch (err) {
-                console.log("erreur lors de la recuperation des donnees", err);
+                console.log(err)
+                setError("Erreur lors du chargement des utilisateurs");
+            } finally {
+                setLoading(false);
             }
         };
-        fetchAllUsers();
+        loadUsers();
     }, []);
+
+    if (loading) return <p>Chargement...</p>;
+    if (error) return <p>{error}</p>;
 
     return (
         <div>
@@ -28,6 +32,7 @@ const Page1 = () => {
             {users.map((user) => (
                 <div className="users" key={user.id}>
                     <h2>User name: {user.username}</h2>
+                    <p>Date d'inscription: {formatDate(user.created_at)}</p>
                 </div>
             ))}
         </div>
@@ -35,4 +40,3 @@ const Page1 = () => {
 };
 
 export default Page1;
-
