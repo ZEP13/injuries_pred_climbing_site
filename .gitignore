@@ -1,0 +1,27 @@
+# === NODE MODULES ===
+backend/node_modules/
+frontend/node_modules/
+
+# === BUILD DIRECTORIES ===
+backend/dist/
+frontend/dist/
+
+# === ENV FILES ===
+backend/.env
+backend/.env.*
+frontend/.env
+frontend/.env.*
+
+# === LOCKFILES ===
+backend/package-lock.json
+frontend/package-lock.json
+
+readme.txt
+# === TEMP / LOG FILES (Linux/Dev) ===
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+.cache/
+.turbo/
