@@ -1,9 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
-    
-export default function Login() {
+
+export default function Register() {
   return (
     <div className="auth">
-      <h1>Login</h1>
+      <h1>Register</h1>
       <form>
         <input
           required
@@ -13,16 +13,22 @@ export default function Login() {
         />
         <input
           required
+          type="email"
+          placeholder="email"
+          name="email"
+        />
+        <input
+          required
           type="password"
           placeholder="password"
           name="password"
         />
-        <button >Login</button>
-	<span>
-          Don't you have an account? <Link to="/register">Register</Link>
+        <button>Register</button>
+        <span>
+          Do you have an account? <Link to="/login">Login</Link>
         </span>
       </form>
     </div>
-  );
-};
+  )
+}
 

@@ -3,7 +3,7 @@ import { formatDate } from "../utils/formatDate";
 import { fetchAllUsers } from "../fetchApi/userApi";
 import type { User } from "../types/userType";
 
-const Page1 = () => {
+export default function Page1() {
     const [users, setUsers] = useState<User[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -39,4 +39,3 @@ const Page1 = () => {
     );
 };
 
-export default Page1;
