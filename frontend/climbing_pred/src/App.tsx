@@ -10,6 +10,7 @@ import Footer from "./components/footer";
 import Login from "./pages/login";
 import Register from "./pages/register.tsx";
 import Profile from "./pages/profile.tsx";
+import Main from "./pages/mainPage.tsx";
 
 const Layout = () => {
   return (
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
 	children:[
 	    {
 		path: "/",
+		element: <Main/>,
+	    },
+	    {
+		path: "/page1",
 		element: <Page1/>,
 	    },
 	    {

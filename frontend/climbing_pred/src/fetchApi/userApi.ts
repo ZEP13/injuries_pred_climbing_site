@@ -12,3 +12,14 @@ export const fetchAllUsers = async (): Promise<User[]> => {
         throw new Error("Impossible de récupérer les utilisateurs");
     }
 };
+
+export const getUserById = async (id_user: string): Promise<User> => {
+    try {
+        const res = await axios.get<User>(`${API_URL}/users/${id_user}`);
+        return res.data;
+    }
+    catch (err) {
+        console.log("Aucun user avec cette id", err)
+        throw new Error("Impossible de recuperer l'user par id")
+    }
+} 
